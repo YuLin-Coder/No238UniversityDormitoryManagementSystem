@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.SuguanDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.SuguanEntity" id="suguanMap">
+        <result property="suguanzhanghao" column="suguanzhanghao"/>
+        <result property="mima" column="mima"/>
+        <result property="suguanxingming" column="suguanxingming"/>
+        <result property="xingbie" column="xingbie"/>
+        <result property="touxiang" column="touxiang"/>
+        <result property="loudong" column="loudong"/>
+        <result property="lianxifangshi" column="lianxifangshi"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.SuguanVO" >
+		SELECT * FROM suguan  suguan         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.SuguanVO" >
+		SELECT  suguan.* FROM suguan  suguan
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.SuguanView" >
+
+		SELECT  suguan.* FROM suguan  suguan 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.SuguanView" >
+		SELECT * FROM suguan  suguan <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	
+</mapper>
